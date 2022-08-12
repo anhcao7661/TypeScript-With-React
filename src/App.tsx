@@ -24,6 +24,10 @@ import { Profile } from './components/auth/Profile';
 import { List } from './components/generics/List';
 import { RandomNumber } from './components/restriction/RandomNumber';
 import { Toast } from './components/templatelisteral/Toast'
+import { CustomButton } from './components/html/AnotherButton';
+import { CustomComponent } from './components/html/CustomComponent';
+import { Text } from './components/polymorphic/Text'
+
 
 function App() {
   const personName = {
@@ -79,25 +83,32 @@ function App() {
 
       <User />
 
+      {/* useReducer hook */}
       <Counter />
 
+      {/* useContext hook */}
       <ThemeContextProvider>
         <Box />
       </ThemeContextProvider>
 
+      {/* useContext future value */}
       <UserContextProvider>
         <AnotherUser />
       </UserContextProvider>
 
+      {/* useRef hook */}
       <MutableRef />
 
+      {/* Class Component */}
       <CounterByClass message='The count value is' />
 
+      {/* Component Prop */}
       <Private isLoggedIn={true} component={Profile} />
 
       {/* <List items={['batman', 'superman', 'wonder women']} onClick={(item) => console.log(item)} />
 
       <List items={[1, 2, 3]} onClick={(item) => console.log(item)} /> */}
+      {/* Generic Props */}
 
       <List items={[
         {
@@ -117,9 +128,24 @@ function App() {
         },
       ]} onClick={(item) => console.log(item)} />
 
+      {/* Restricting Props */}
       <RandomNumber value={10} isPositive />
 
+      {/* Template Literals and Exclude */}
       <Toast position='right - bottom' />
+
+      {/* Wrapping HTML elements */}
+      <CustomButton variant='primary' onClick={() => console.log('clicked')}>
+        Primary Button
+      </CustomButton>
+
+      {/* Extracting a component */}
+      <CustomComponent name='anhcao' isLogging={true} />
+
+      {/* Polymorphic components */}
+      <Text as='h1' size='lg'>Heading</Text>
+      <Text as='p' size='md'>Paragraph</Text>
+      <Text as='label' htmlFor='someId' size='sm' color='secondary'>Label</Text>
 
     </div>
   );

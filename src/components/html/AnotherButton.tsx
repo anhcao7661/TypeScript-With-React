@@ -1,8 +1,14 @@
+import React from "react"
 
-export const CustomButton = () => {
+type ButtonProps = {
+    variant: 'primary' | 'secondary'
+    children: string
+} & Omit<React.ComponentProps<'button'>, 'children'>
+
+export const CustomButton = ({ variant, children, ...rest }: ButtonProps) => {
     return (
-        <button>
-            Label
+        <button className={`class-with-${variant}`} {...rest}>
+            {children}
         </button>
     )
 }
